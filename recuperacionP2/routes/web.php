@@ -9,3 +9,8 @@ Route::get('/', function () {
 
 
 Route::resource('users',UserController::class);
+
+Route::middleware(['date'])->group(function(){
+    Route::put('/users', [UserController::class,'index']);
+    Route::delete('/users', [UserController::class,'destroy']);
+});
